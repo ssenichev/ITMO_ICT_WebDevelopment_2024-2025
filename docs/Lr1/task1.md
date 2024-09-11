@@ -7,7 +7,8 @@
 - Реализовать с помощью протокола `UDP`.
 
 ## Файлы
-- `udp_server.py`: Реализация UDP сервера
+- `udp_server.py`: Реализация UDP сервера  
+
 ```python
 import socket
 
@@ -31,7 +32,9 @@ def server():
 if __name__ == "__main__":
     server()
 ```
-- `udp_client.py`: Реализация UDP клиента
+
+- `udp_client.py`: Реализация UDP клиента  
+
 ```python
 import socket
 

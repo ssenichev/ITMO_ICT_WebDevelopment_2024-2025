@@ -6,7 +6,8 @@
 - Обязательно использовать библиотеку `socket`.
 
 ## Файлы
-- `server.py`: Реализация сервера
+- `server.py`: Реализация сервера  
+
 ```python
 import socket
 
@@ -49,5 +50,4 @@ def server():
 
 if __name__ == "__main__":
     server()
-
 ```

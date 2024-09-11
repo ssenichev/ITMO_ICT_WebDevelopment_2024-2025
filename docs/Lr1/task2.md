@@ -10,7 +10,8 @@
 Выполенена проверка на ввод чисел, их положительное значение без падения сервера.
 
 ## Файлы
-- `tcp_server.py`: Реализация TCP сервера
+- `tcp_server.py`: Реализация TCP сервера  
+
 ```python
 import socket
 
@@ -73,6 +74,7 @@ if __name__ == "__main__":
 ```
 
 - `tcp_client.py`: Реализация TCP клиента
+
 ```python
 import socket
 

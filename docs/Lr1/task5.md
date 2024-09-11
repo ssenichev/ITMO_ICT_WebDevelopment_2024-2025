@@ -7,7 +7,8 @@
 - Отдать информацию обо всех оценках по дисциплинам в виде HTML-страницы.
 
 ## Файлы
-- `server.py`: Реализация сервера
+- `server.py`: Реализация сервера  
+
 ```python
 import socket
 from urllib.parse import parse_qs
