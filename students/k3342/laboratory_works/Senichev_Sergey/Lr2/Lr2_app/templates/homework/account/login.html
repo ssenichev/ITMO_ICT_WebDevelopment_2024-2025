@@ -2,12 +2,29 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
+    <title>Task Detail</title>
+    <style>
+        .header {
+            background-color: #333;
+            padding: 1em;
+            margin-bottom: 2em;
+        }
+        .header a {
+            color: white;
+            text-decoration: none;
+            margin-right: 1em;
+        }
+        .header a:hover {
+            color: #ddd;
+        }
+    </style>
 </head>
 <body>
+    <div class="header">
+        <a href="{% url 'homework:register' %}">Register</a>
+    </div>
     <h1>Login</h1>
 
-    <!-- Отображение сообщений об ошибках -->
     {% if messages %}
         {% for message in messages %}
             <div class="alert">{{ message }}</div>
