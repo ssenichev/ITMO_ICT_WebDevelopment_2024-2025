@@ -1,0 +1,40 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--  <meta charset="UTF-8">-->
+<!--  <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--  <title>Homework App</title>-->
+<!--  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.16/tailwind.min.css">-->
+<!--</head>-->
+<!--<body class="bg-gray-100 font-sans">-->
+<!--  <header class="bg-blue-500 text-white py-4">-->
+<!--    <div class="container mx-auto flex justify-between items-center">-->
+<!--      <a href="{% url 'homework:task_list' %}" class="text-xl font-bold">Homework App</a>-->
+<!--      <nav>-->
+<!--        {% if user.is_authenticated %}-->
+<!--          <a href="{% url 'homework:account_info' %}" class="mr-4">Account</a>-->
+<!--          <a href="{% url 'homework:logout' %}" class="mr-4">Logout</a>-->
+<!--        {% else %}-->
+<!--          <a href="{% url 'homework:register' %}" class="mr-4">Register</a>-->
+<!--          <a href="{% url 'homework:login' %}" class="mr-4">Login</a>-->
+<!--        {% endif %}-->
+<!--      </nav>-->
+<!--    </div>-->
+<!--  </header>-->
+
+<!--  <main class="container mx-auto py-8">-->
+<!--    {% if messages %}-->
+<!--      <div class="mb-4">-->
+<!--        {% for message in messages %}-->
+<!--          <div class="bg-{% if message.tags %}{{ message.tags }}{% else %}blue{% endif %}-500 text-white px-4 py-2 rounded">-->
+<!--            {{ message }}-->
+<!--          </div>-->
+<!--        {% endfor %}-->
+<!--      </div>-->
+<!--    {% endif %}-->
+
+<!--    {% block content %}{% endblock %}-->
+<!--  </main>-->
+
+<!--</body>-->
+<!--</html>-->
