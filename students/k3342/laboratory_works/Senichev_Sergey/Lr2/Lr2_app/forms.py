@@ -23,19 +23,14 @@ class AssignmentForm(forms.ModelForm):
         fields = ['task', 'text']
 
     def __init__(self, *args, **kwargs):
-        # Получаем пользователя из kwargs
         user = kwargs.pop('user', None)
         super(AssignmentForm, self).__init__(*args, **kwargs)
 
         if user:
-            # Получаем все задания
             all_tasks = Task.objects.all()
-            # Получаем задания, на которые студент уже отправил ответы
             submitted_tasks = Assignment.objects.filter(
                 student__user=user
             ).values_list('task_id', flat=True)
-            # Исключаем уже отправленные задания из списка
             available_tasks = all_tasks.exclude(id__in=submitted_tasks)
 
-            # Обновляем queryset для поля task
             self.fields['task'].queryset = available_tasks
