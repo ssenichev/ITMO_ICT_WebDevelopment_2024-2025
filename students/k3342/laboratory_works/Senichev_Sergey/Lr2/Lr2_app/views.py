@@ -46,6 +46,8 @@ def login_view(request):
             )
             if user:
                 login(request, user)
+                if user.is_superuser:
+                    return redirect('homework:admin_dashboard')
                 return redirect('homework:task_list')
             else:
                 messages.error(request, 'Invalid credentials')
@@ -140,14 +142,31 @@ def my_grades(request):
 
 
 @login_required
-def class_grades(request):
-    student = Student.objects.get(user=request.user)
-    class_assignments = Assignment.objects.filter(
-        student__student_class=student.student_class,
+def admin_dashboard(request):
+    if not request.user.is_superuser:
+        return redirect('homework:account_info')
+
+    students = Student.objects.all().order_by('name')
+    tasks = Task.objects.all().order_by('title')
+
+    assignments = Assignment.objects.filter(
         status='gr'
     ).select_related('task', 'student')
 
-    return render(request, 'homework/grades/class_grades.html', {
-        'class_assignments': class_assignments
-    })
+    grades = {}
+    for assignment in assignments:
+        if assignment.student_id not in grades:
+            grades[assignment.student_id] = {}
+        grades[assignment.student_id][assignment.task_id] = assignment.grade
 
+    context = {
+        'total_students': Student.objects.count(),
+        'total_tasks': Task.objects.count(),
+        'pending_assignments': Assignment.objects.filter(status='sb').count(),
+        'graded_assignments': Assignment.objects.filter(status='gr').count(),
+        'students': students,
+        'tasks': tasks,
+        'grades': grades,
+    }
+
+    return render(request, 'homework/admin/dashboard.html', context)

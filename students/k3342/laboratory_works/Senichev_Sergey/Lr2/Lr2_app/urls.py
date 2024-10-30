@@ -15,5 +15,6 @@ urlpatterns = [
     path('tasks/pending/', views.pending_tasks, name='pending_tasks'),
 
     path('grades/', views.my_grades, name='my_grades'),
-    path('grades/all/', views.class_grades, name='class_grades'),
+
+    path('grades/all/', views.admin_dashboard, name='admin_dashboard'),
 ]
